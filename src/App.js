@@ -1,12 +1,13 @@
 import React from 'react';
-import { HeroComponent, Navbar } from 'components';
+import { HeroComponent, Navbar, HireMe, Projects } from 'components';
 
 function App() {
   return (
     <div className="App">
       <Navbar />
       <HeroComponent />
-      <div style={{height: "1000px"}} />
+      <Projects />
+      <HireMe />
     </div>
   );
 }

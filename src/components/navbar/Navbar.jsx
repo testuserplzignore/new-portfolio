@@ -1,18 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { PoseGroup } from "react-pose"
 import { AnimatedNavContainer, AnimatedNavItem } from './NavbarStyles'
+import useAtTopOfPage from '../../hooks/useAtTopOfPage'
 
 export default function Navbar() {
-  const [visible, setVisible] = useState(false)
-  const listenToScroll = () => {
-    if (window.pageYOffset !== 0) {
-      setVisible(true)
-    } else {
-      setVisible(false)
-    }
-  }
-  window.addEventListener("scroll", listenToScroll)
-    
+  const visible = useAtTopOfPage() ? false : true
+  
   return (
     <PoseGroup>
       {visible &&

@@ -10,9 +10,12 @@ export const NavContainer = styled.div`
 `
 export const AnimatedNavContainer = posed(NavContainer)({
   enter: {
-    opacity: 1
+    y: 0,
+    opacity: 1,
+    delayChildren: 200
   },
   exit: {
+    y: -50,
     opacity: 0
   }
 })
@@ -24,12 +27,15 @@ export const NavItem = styled.a`
   text-align: center;
   padding: 15px;
   text-decoration: none;
-  :hover {
-    
-  }
 `
 export const AnimatedNavItem = posed(NavItem)({
   hoverable: true,
+  enter: {
+    x: 0
+  },
+  exit: {
+    x: -100
+  },
   init: {
     color: "white",
     backgroundColor: "#333"
