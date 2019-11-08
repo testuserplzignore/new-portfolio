@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components/macro"
 import { common, breakpoint } from "style"
 
 const {absoluteCentered, absoluteMiddle, absoluteVerticalAlign, responsiveSquares} = common;
@@ -76,26 +76,11 @@ export const AddressBar = styled.div`
   overflow-x: hidden;
 `
 export const Address = styled.a`
+  display: block;
+  width: 100%;
   text-decoration: none;
   color: black;
-  vertical-align: top;
   margin-left: 1%;
-  font-size: 4px;
-  ${breakpoint.mobileM} {
-    font-size: 5px;
-  }
-  ${breakpoint.tablet} {
-    font-size: 8px;
-  }
-  ${breakpoint.laptop} {
-    font-size: 12px;
-  }
-  ${breakpoint.desktop} {
-    font-size: 13px;
-  }
-  ${breakpoint.desktopL} {
-    font-size: 14px;
-  }
 `
 export const BrowserWindow = styled.div`
   width: 100%;
@@ -111,7 +96,7 @@ export const DestopButton = styled.div`
 `
 export const DesktopButtonDetail = styled.div`
   ${absoluteMiddle}
-  height: 60%;
-  width: 60%;
+  height: 50%;
+  width: 50%;
   border: 1px solid darkgrey;
 `

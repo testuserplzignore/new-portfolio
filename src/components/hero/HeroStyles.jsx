@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components/macro"
 import { breakpoint } from 'style'
 import posed from 'react-pose';
 

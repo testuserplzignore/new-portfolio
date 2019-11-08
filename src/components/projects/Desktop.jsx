@@ -1,9 +1,44 @@
 import React from 'react'
-import { DesktopContainer, DesktopBezel, AbsoluteInnerWrapper, DesktopCamera, DesktopScreen, BrowserBar, BrowserButton, RelativeInnerWrapper, AddressBar, Address, DestopButton, DesktopButtonDetail, BrowserWindow } from './DeviceStyles'
+import ReactFitText from "react-fittext"
+import TrackVisibility from "react-on-screen"
+import Typing from "react-typing-animation"
 
-export default function Desktop({className, address, children }) {
+import { 
+  DesktopContainer, 
+  DesktopBezel, 
+  AbsoluteInnerWrapper, 
+  DesktopCamera, 
+  DesktopScreen, 
+  BrowserBar, 
+  BrowserButton, 
+  RelativeInnerWrapper, 
+  AddressBar, 
+  Address, 
+  DestopButton, 
+  DesktopButtonDetail, 
+  BrowserWindow } from './DeviceStyles'
+
+
+
+export default function Desktop({className, address, children, onFinishedTyping }) {
+
+  const TrackedAddress = ({isVisible}) => {
+    return (
+      <ReactFitText compressor={3.5} >
+        <Address href={address}>
+          {isVisible &&
+            <Typing onFinishedTyping={onFinishedTyping}>
+              {address}
+            </Typing>
+          }
+        </Address>
+      </ReactFitText>
+    )
+  }
+
   return (
-      <DesktopContainer className={className}>
+    <div className={className}>
+      <DesktopContainer>
         <AbsoluteInnerWrapper>
           <DesktopBezel>
             <DesktopCamera />
@@ -14,9 +49,9 @@ export default function Desktop({className, address, children }) {
                 <BrowserButton color="green" left="10%" />
                 <AddressBar>
                   <RelativeInnerWrapper>
-                    <Address href="#" >
-                      {address}
-                    </Address>
+                    <TrackVisibility once>
+                      <TrackedAddress />
+                    </TrackVisibility>
                   </RelativeInnerWrapper>
                 </AddressBar>
               </BrowserBar>
@@ -32,5 +67,6 @@ export default function Desktop({className, address, children }) {
           </DesktopBezel>
         </AbsoluteInnerWrapper>
       </DesktopContainer>
+    </div>
   )
 }

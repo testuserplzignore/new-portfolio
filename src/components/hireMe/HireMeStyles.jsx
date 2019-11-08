@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components/macro"
 import posed from "react-pose"
 
 export const HireMeButton = styled.button`
@@ -6,7 +6,7 @@ export const HireMeButton = styled.button`
   text-decoration: none;
   position: fixed;
   padding: 16px 32px;
-	bottom: 10%;
+	bottom: 5%;
   cursor: pointer;
 	right: 10%;
 	border-radius: 5px;
