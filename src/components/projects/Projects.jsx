@@ -5,7 +5,8 @@ import {
   MobileProjectLayout, 
   ProjectImage, 
   MobileProjectDescription, 
-  MobileProjectTitle 
+  MobileProjectTitle, 
+  AnimatedIcon
 } from './projectStyles';
 
 
@@ -21,6 +22,12 @@ export default function Projects() {
             <ProjectImage src={project.img} alt={`${project.name} screenshot`} />
           </StyledDesktop>
           <MobileProjectDescription>{project.description}</MobileProjectDescription>
+          <>
+            <AnimatedIcon src="/html.svg" />
+            <AnimatedIcon src="/js.svg" />
+            <AnimatedIcon src="/css.svg" />
+            <AnimatedIcon src="/sql.svg" />
+          </>
         </MobileProjectLayout>
       )}
     </div>
