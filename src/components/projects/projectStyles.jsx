@@ -33,9 +33,14 @@ export const MobileProjectDescription = styled.p`
   font-size: 18px;
   line-height: 24px;
 `
+export const MobileTechContainer = styled.div`
+  ${maxWidth}
+  margin: 0 auto;
+`
 
 export const Icon = styled.img`
   width: 50px;
+  margin-right: 10px;
 `;
 
 export const AnimatedIcon = posed(Icon)({

@@ -1,17 +1,18 @@
 import React from 'react'
-import {projects} from "assets"
+import { projects } from "assets"
 import { 
   StyledDesktop,
   MobileProjectLayout, 
   ProjectImage, 
   MobileProjectDescription, 
-  MobileProjectTitle, 
-  AnimatedIcon
+  MobileProjectTitle
 } from './projectStyles';
+import MobileTechStack from './MobileTechStack';
 
 
 export default function Projects() {
-  console.log(projects);
+  console.log(projects); 
+  
   
   return (
     <div>
@@ -22,12 +23,7 @@ export default function Projects() {
             <ProjectImage src={project.img} alt={`${project.name} screenshot`} />
           </StyledDesktop>
           <MobileProjectDescription>{project.description}</MobileProjectDescription>
-          <>
-            <AnimatedIcon src="/html.svg" />
-            <AnimatedIcon src="/js.svg" />
-            <AnimatedIcon src="/css.svg" />
-            <AnimatedIcon src="/sql.svg" />
-          </>
+          <MobileTechStack tech={project.tech} />
         </MobileProjectLayout>
       )}
     </div>

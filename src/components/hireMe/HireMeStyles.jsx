@@ -6,7 +6,7 @@ export const HireMeButton = styled.button`
   text-decoration: none;
   position: fixed;
   padding: 16px 32px;
-	bottom: 5%;
+	bottom: 8%;
   cursor: pointer;
 	right: 10%;
 	border-radius: 5px;
