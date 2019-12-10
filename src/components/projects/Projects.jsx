@@ -10,10 +10,7 @@ import {
 import MobileTechStack from './MobileTechStack';
 
 
-export default function Projects() {
-  console.log(projects); 
-  
-  
+export default function Projects() {  
   return (
     <div>
       {projects.map(project => 

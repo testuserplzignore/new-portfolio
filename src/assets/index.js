@@ -5,7 +5,7 @@ import bandIt from './band-it.png'
 const skills = {
   js: {
     src:"tech/javascript.svg",
-    name: 'javascript'
+    name: 'Javascript'
   },
   html: {
     src:"tech/html5.svg",
@@ -53,7 +53,7 @@ const skills = {
   },
   rails: {
     src: "tech/rails.svg",
-    name: "rails"
+    name: "Rails"
   },
   sequelize: {
     src: "tech/sequelize.svg",

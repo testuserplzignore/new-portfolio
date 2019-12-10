@@ -45,3 +45,22 @@ export const AnimatedHireMeButton = posed(HireMeButton)({
     boxShadow: "3px 3px 4px #999"
   }
 })
+
+export const ModalBackground = posed(styled.div`
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  z-index: 2;
+`)({
+  enter: {
+    opacity: .3,
+  },
+  exit: {
+    opacity: 0,
+  }
+})
