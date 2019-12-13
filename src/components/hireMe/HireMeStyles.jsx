@@ -166,16 +166,18 @@ export const FormField = styled.div`
        `;
 
 export const FormInput = styled.input`
+  outline: none;
   padding: 10px;
   margin-top: 10px;
   border-radius: 5px;
 `;
 
 export const FormText = styled.textarea`
-         resize: none;
-         margin-top: 10px;
-         border: inset 2px rgb(238, 238, 238);
-         border-radius: 5px;
-         padding: 10px;
-         min-height: 150px;
-       `;
+  outline: none;
+  resize: none;
+  margin-top: 10px;
+  border: inset 2px rgb(238, 238, 238);
+  border-radius: 5px;
+  padding: 10px;
+  min-height: 150px;
+`;
