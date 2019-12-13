@@ -1,4 +1,4 @@
-import styled from "styled-components/macro"
+import styled from "styled-components"
 import { breakpoint } from 'style'
 import posed from 'react-pose';
 
@@ -8,7 +8,7 @@ const LeftMarginLaptop = "2%"
 
 export const HeroContainer = styled.div`
   height: 100vh;
-  width: 100vw;
+  width: 100%;
 `
 
 export const AnimationContainer = styled.div`
@@ -22,6 +22,7 @@ export const AnimationContainer = styled.div`
 
 export const AnimatedTextContainer = styled.div`
   display: inline-block;
+  user-select: none;
   margin-bottom: 2%;
   ${breakpoint.laptop} {
     margin-bottom: .5%;

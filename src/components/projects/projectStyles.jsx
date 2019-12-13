@@ -1,4 +1,4 @@
-import styled from "styled-components/macro"
+import styled from "styled-components"
 import posed from "react-pose"
 import Desktop from "./Desktop"
 

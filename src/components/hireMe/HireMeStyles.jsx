@@ -1,4 +1,4 @@
-import styled from "styled-components/macro"
+import styled from "styled-components"
 import posed from "react-pose"
 
 export const HireMeButton = styled.button`
@@ -109,8 +109,8 @@ export const ModalBackground = posed(Shade)({
 export const Modal = posed(styled.div`
   border-radius: 20px;
   background-color: white;
-  height: 80vh;
-  width: 70vw;
+  height: 80%;
+  width: 70%;
   position: fixed;
   right: 50%;
   bottom: 50%;
@@ -166,7 +166,7 @@ export const FormField = styled.div`
        `;
 
 export const FormInput = styled.input`
-  padding: 5px;
+  padding: 10px;
   margin-top: 10px;
   border-radius: 5px;
 `;
@@ -176,6 +176,6 @@ export const FormText = styled.textarea`
          margin-top: 10px;
          border: inset 2px rgb(238, 238, 238);
          border-radius: 5px;
-         padding: 5px;
+         padding: 10px;
          min-height: 150px;
        `;
