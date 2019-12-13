@@ -1,35 +1,33 @@
-import React from 'react'
-import {projects} from "assets"
+import React from 'react';
+import uuidv4 from "uuid/v4";
+import { projects } from "assets";
 import { 
   StyledDesktop,
   MobileProjectLayout, 
   ProjectImage, 
   MobileProjectDescription, 
-  MobileProjectTitle, 
-  AnimatedIcon
+  MobileProjectTitle
 } from './projectStyles';
+import MobileTechStack from './MobileTechStack';
 
+const Project = (project) =>
+  <MobileProjectLayout>
+    <MobileProjectTitle>{project.name}</MobileProjectTitle>
+    <StyledDesktop address={project.link} >
+      <ProjectImage src={project.img} alt={`${project.name} screenshot`} />
+    </StyledDesktop>
+    <MobileProjectDescription>{project.description}</MobileProjectDescription>
+    <MobileTechStack tech={project.tech} />
+  </MobileProjectLayout>
 
-export default function Projects() {
-  console.log(projects);
-  
+const ProjectDisplay = ({projects}) => projects.map(project =>
+  <Project {...project} key={uuidv4()} />
+)
+
+export default function Projects() {  
   return (
     <div>
-      {projects.map(project => 
-        < MobileProjectLayout key={project.name}>
-          <MobileProjectTitle>{project.name}</MobileProjectTitle>
-          <StyledDesktop address={project.link}>
-            <ProjectImage src={project.img} alt={`${project.name} screenshot`} />
-          </StyledDesktop>
-          <MobileProjectDescription>{project.description}</MobileProjectDescription>
-          <>
-            <AnimatedIcon src="/html.svg" />
-            <AnimatedIcon src="/js.svg" />
-            <AnimatedIcon src="/css.svg" />
-            <AnimatedIcon src="/sql.svg" />
-          </>
-        </MobileProjectLayout>
-      )}
+      <ProjectDisplay projects={projects}/>
     </div>
   )
 }

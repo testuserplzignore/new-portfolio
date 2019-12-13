@@ -1,5 +1,7 @@
 import React from 'react';
-import { HeroComponent, Navbar, HireMe, Projects } from 'components';
+import "react-typist/dist/Typist.css";
+
+import { HeroComponent, Navbar, HireMe, Projects, Footer } from 'components';
 
 function App() {
   return (
@@ -7,6 +9,7 @@ function App() {
       <Navbar />
       <HeroComponent />
       <Projects />
+      <Footer />
       <HireMe />
     </div>
   );

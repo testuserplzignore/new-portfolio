@@ -10,7 +10,7 @@ export default function Navbar() {
     <PoseGroup>
       {visible &&
         <AnimatedNavContainer key="unique">
-        <AnimatedNavItem>Home</AnimatedNavItem>
+        <AnimatedNavItem href="/">Home</AnimatedNavItem>
       </AnimatedNavContainer>
       }
     </PoseGroup>

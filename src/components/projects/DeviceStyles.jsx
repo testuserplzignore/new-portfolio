@@ -1,5 +1,5 @@
 import styled from "styled-components/macro"
-import { common, breakpoint } from "style"
+import { common } from "style"
 
 const {absoluteCentered, absoluteMiddle, absoluteVerticalAlign, responsiveSquares} = common;
 

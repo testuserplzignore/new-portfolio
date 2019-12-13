@@ -22,7 +22,7 @@ export default function HeroLinks({active}) {
           <AnimatedIcon key="/github.svg" src="/github.svg" />
         </a>
         <a
-          href="https://twitter.com/RobertM52261496"
+          href="https://twitter.com/RobDoesJS"
           target='_blank'
           rel="noopener noreferrer"
         >

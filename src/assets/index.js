@@ -1,61 +1,65 @@
-
-import cPlusPlus from './c++.svg'
-import css3 from './css-3.svg'
-import django from './django.svg'
-import flask from './flask.svg'
-import html5 from './html-5.svg'
-import python from './python.svg'
-import rails from './rails.svg'
-import reactImg from './react.svg'
-import ruby from './ruby.svg'
-import javascript from './javascript.svg'
-
 import snakeGame from './snakeGame.png'
 import artBeat from './artBeat.png'
 import bandIt from './band-it.png'
 
-const skills = [
-  {
-    img: javascript,
-    name: 'javascript'
+const skills = {
+  js: {
+    src:"tech/javascript.svg",
+    name: 'Javascript'
   },
-  {
-    img: html5,
+  html: {
+    src:"tech/html5.svg",
     name: 'HTML 5'
   },
-  {
-    img: css3,
+  css: {
+    src:"tech/css3.svg" ,
     name: 'CSS 3'
   },
-  {
-    img: reactImg,
+  react: {
+    src:"tech/react.svg",
     name: 'React'
   },
-  {
-    img: python,
-    name: 'Python'
+  express: {
+    src: "tech/express.svg",
+    name: "Express"
   },
-  {
-    img: flask,
-    name: 'Flask'
+  electron: {
+    src: "tech/electron.svg",
+    name: "Electron"
   },
-  {
-    img: django,
-    name: 'Django'
+  heroku: {
+    src: "tech/heroku.svg",
+    name: "Heroku"
   },
-  {
-    img: ruby,
-    name: 'Ruby'
+  mongo: {
+    src: "tech/mongodb.svg",
+    name: "MongoDB"
   },
-  {
-    img: rails,
-    name: 'Ruby on Rails'
+  node: {
+    src: "tech/nodejs.svg",
+    name: "Node JS"
   },
-  {
-    img: cPlusPlus,
-    name: 'C++'
+  postgres: {
+    src: "tech/postgresql.svg",
+    name: "Postgresql"
+  },
+  redux: {
+    src: "tech/redux.svg",
+    name: "Redux"
+  },
+  ruby: {
+    src: "tech/ruby.svg",
+    name: "Ruby"
+  },
+  rails: {
+    src: "tech/rails.svg",
+    name: "Rails"
+  },
+  sequelize: {
+    src: "tech/sequelize.svg",
+    name: "Sequelize"
   }
-]
+}
 
 const projects = [
   {
@@ -69,6 +73,7 @@ const projects = [
     img: snakeGame,
     link: `http://tacky-thrill.surge.sh/`,
     github: `https://github.com/ElllGeeEmm/snake`,
+    tech: [skills.html, skills.css, skills.js]
   },
   {
     name: 'NY Art Beat',
@@ -81,6 +86,7 @@ const projects = [
     img: artBeat,
     link: `http://ny-art-beat-react.surge.sh/`,
     github: `https://github.com/ElllGeeEmm/ny-art-beat-app`,
+    tech: [skills.html, skills.css, skills.js, skills.react]
   },
   {
     name: 'Band-It',
@@ -93,6 +99,17 @@ const projects = [
     img: bandIt,
     link: `http://banditproject.surge.sh/`,
     github: `https://github.com/mikebrown4000/Band-It`,
+    tech: [
+      skills.html, 
+      skills.css, 
+      skills.js, 
+      skills.react, 
+      skills.node, 
+      skills.express,
+      skills.postgres, 
+      skills.sequelize,
+      skills.heroku
+    ]
   },
 ]
 
