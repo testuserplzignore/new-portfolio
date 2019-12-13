@@ -21,6 +21,7 @@ export const AnimationContainer = styled.div`
 `;
 
 export const AnimatedTextContainer = styled.div`
+  display: inline-block;
   margin-bottom: 2%;
   ${breakpoint.laptop} {
     margin-bottom: .5%;

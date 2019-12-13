@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import Typing from 'react-typing-animation'
-import { AnimationContainer, BoldAnimatedTextContainer } from './HeroStyles'
-import TypeAboutMe from "./HeroTypeAboutMe"
+import React, { useState } from 'react';
+import Typist from "react-typist";
+import { AnimationContainer, BoldAnimatedTextContainer } from './HeroStyles';
+import TypeAboutMe from "./HeroTypeAboutMe";
 
 const aboutMeArr = ["Software Engineer", "Web Developer", "Dog Lover", "Full Stack Developer"];
 
@@ -11,16 +11,21 @@ export default function HeroTypingAnimation({setLinksVisible}) {
   
   return (
     <AnimationContainer>
-      <Typing
-        onFinishedTyping={()=>{
+      <Typist
+        cursor={{
+          hideWhenDone: true,
+          hideWhenDoneDelay: 0,
+        }}
+        onTypingDone={()=>{
           setShowAboutMe(true)
           setLinksVisible(true)
         }}
       >
         <BoldAnimatedTextContainer>Robert</BoldAnimatedTextContainer>
+        <br />
         <BoldAnimatedTextContainer>Morrissey</BoldAnimatedTextContainer>
         
-      </Typing>
+      </Typist>
       {showAboutMe && 
         <TypeAboutMe aboutMeArr={aboutMeArr} />
       }

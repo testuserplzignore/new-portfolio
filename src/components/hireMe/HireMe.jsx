@@ -1,23 +1,37 @@
-import React, { useState } from 'react'
-import { AnimatedHireMeButton, ModalBackground } from './HireMeStyles';
+import React, { useState, useEffect } from 'react'
+import { AnimatedHireMeButton } from './HireMeStyles';
+import HireMeModal from "./HireMeModal"
 import { PoseGroup } from "react-pose"
-import useAtTopOfPage from '../../hooks/useAtTopOfPage';
+import {useAtTopOfPage} from '../../hooks';
+
+import uuidv4 from "uuid/v4";
+const keys = {
+  modal: uuidv4(),
+  button: uuidv4()
+};
 
 export default function HireMe() {
   const [modalActive, setModalActive] = useState(false)
-  const visible = !useAtTopOfPage() 
-  
+  const visible = !useAtTopOfPage()
+
+  useEffect(() => {
+    document.body.style.overflow = modalActive ? "hidden" : "unset";
+  }, [modalActive])
+
   return (
+    <>
     <PoseGroup>
       {visible &&
-        <AnimatedHireMeButton key="I AM SPECIAL" onClick={()=>setModalActive(true)}>
+        <AnimatedHireMeButton key={keys.button} onClick={()=>setModalActive(true)}>
           HIRE ME
         </AnimatedHireMeButton>
       }
-
-      {modalActive && 
-          <ModalBackground key="I AM SPECIAL TREE" onClick={()=>setModalActive(false)}/>
-      }
     </PoseGroup>
+    <HireMeModal
+      key={keys.modal}
+      active={modalActive}
+      onClickClose={(e) => { setModalActive(false) }}
+    />
+    </>
   )
 }

@@ -46,21 +46,136 @@ export const AnimatedHireMeButton = posed(HireMeButton)({
   }
 })
 
-export const ModalBackground = posed(styled.div`
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: black;
-  z-index: 2;
-`)({
-  enter: {
-    opacity: .3,
+export const SubmitButton = styled.button`
+         -webkit-appearance: none;
+         background-color: white;
+         text-decoration: none;
+         border: 1px solid lightgray;
+         border-radius: 5px;
+         margin: 20px;
+         width: 150px;
+         :focus,
+         :active {
+           border: 1px solid lightgray;
+           outline: none;
+         }
+       `;
+
+export const AnimatedSubmitButton = posed(SubmitButton)({
+  hoverable: true,
+  pressable: true,
+  init: {
+    backgroundColor: "#fff",
+    scale: 1,
   },
-  exit: {
-    opacity: 0,
+  hover: {
+    backgroundColor: "#E0ECFF",
+    scale: 1.2,
+  },
+  press: {
+    scale: 1.1,
   }
-})
+});
+
+const Shade = styled.div`
+  position: fixed;
+  background: rgba(0, 0, 0, 0.8);
+  top: 0;
+  height: 100%;
+  width: 100vw;
+`;
+
+export const ModalBackground = posed(Shade)({
+  init: {
+    opacity: 0,
+    zIndex: -1
+  },
+  active: {
+    duration: 300,
+    opacity: 1,
+    applyAtStart: {
+      zIndex: 1
+    }
+  },
+  hidden: {
+    duration: 150,
+    opacity: 0,
+    applyAtEnd: {
+      zIndex: -1
+    },
+  }
+});
+
+export const Modal = posed(styled.div`
+  border-radius: 20px;
+  background-color: white;
+  height: 80vh;
+  width: 70vw;
+  position: fixed;
+  right: 50%;
+  bottom: 50%;
+  transform: translate(50%, 50%);
+`)({
+  init: {
+    zIndex: -1,
+    scale: 0,
+    x: "50%",
+    y: " 50%"
+  },
+  active: {
+    applyAtStart: {
+      zIndex: 1
+    },
+    scale: 1,
+    x: "50%",
+    y: " 50%",
+    transition: {
+      scale: {
+        duration: 300
+      }
+    }
+  },
+  hidden: {
+    applyAtEnd: {
+      zIndex: -1
+    },
+    scale: 0,
+    x: "50%",
+    y: " 50%",
+    transition: {
+      scale: {
+        duration: 300
+      }
+    }
+  }
+});
+
+export const ModalContents = styled.div`
+  padding: 20px;
+  height: 100%;
+`;
+
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+export const FormField = styled.div`
+         display: flex;
+         flex-direction: column;
+         margin-top: 20px;
+       `;
+
+export const FormInput = styled.input`
+  padding: 5px;
+  margin-top: 10px;
+  border-radius: 5px;
+`;
+
+export const FormText = styled.textarea`
+         resize: none;
+         margin-top: 10px;
+         border: inset 2px rgb(238, 238, 238);
+         border-radius: 5px;
+         padding: 5px;
+         min-height: 150px;
+       `;

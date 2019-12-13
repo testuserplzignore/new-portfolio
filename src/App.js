@@ -1,4 +1,6 @@
 import React from 'react';
+import "react-typist/dist/Typist.css";
+
 import { HeroComponent, Navbar, HireMe, Projects, Footer } from 'components';
 
 function App() {
@@ -7,8 +9,8 @@ function App() {
       <Navbar />
       <HeroComponent />
       <Projects />
-      <HireMe />
       <Footer />
+      <HireMe />
     </div>
   );
 }
