@@ -155,7 +155,7 @@ export const ModalContents = styled.div`
   height: 100%;
 `;
 
-export const Form = styled.form`
+export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
 `;
