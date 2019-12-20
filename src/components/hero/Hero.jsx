@@ -30,7 +30,6 @@ const HeroContent = ({resp}) => {
 
 export default function Hero(props) {
   const [resp, loading] = getHero();
-  console.log(resp);
   
   return (
     <HeroContainer>

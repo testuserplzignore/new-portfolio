@@ -13,7 +13,7 @@ const MyForm = (props) => {
       method="POST"
       action="https://formspree.io/rbrtmorrissey86@gmail.com"
       target="_blank"
-      onSubmit={(e) => console.log(e.target.action)}
+      onSubmit={props.onClickClose}
     >
       <React.Fragment key={key}>
         <FormField>
@@ -42,7 +42,7 @@ export default ({ active, onClickClose }) => {
       <Modal pose={poseProps}>
         <ModalContents>
           <h2>Contact Me</h2>
-          <MyForm />
+          <MyForm onClickClose={onClickClose} />
         </ModalContents>
       </Modal>
     </>

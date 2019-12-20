@@ -4,7 +4,6 @@ import { AnimatedLinkContainer, AnimatedIcon } from './HeroStyles'
 
 export default function HeroLinks({active, heroSocialLinks}) {
   const visible = active ? 'visible' : 'hidden';
-  console.log(heroSocialLinks);
 
   return (
     <AnimatedLinkContainer pose={visible}>

@@ -1,8 +1,9 @@
 import styled from "styled-components"
 import posed from "react-pose"
 import Desktop from "./Desktop"
+import { common } from "style"
 
-const maxWidth = "max-width: 800px;"
+const {maxWidth} = common;
 
 
 export const StyledDesktop = styled(Desktop)`
