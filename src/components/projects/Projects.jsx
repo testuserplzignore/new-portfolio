@@ -1,6 +1,5 @@
 import React from 'react';
-import uuidv4 from "uuid/v4";
-import { projects } from "assets";
+import { getProjects } from "services";
 import { 
   StyledDesktop,
   MobileProjectLayout, 
@@ -10,24 +9,28 @@ import {
 } from './projectStyles';
 import MobileTechStack from './MobileTechStack';
 
-const Project = (project) =>
+
+
+const Project = ({ fields }) => (
   <MobileProjectLayout>
-    <MobileProjectTitle>{project.name}</MobileProjectTitle>
-    <StyledDesktop address={project.link} >
-      <ProjectImage src={project.img} alt={`${project.name} screenshot`} />
+    <MobileProjectTitle>{fields.title}</MobileProjectTitle>
+    <StyledDesktop address={fields.link}>
+      <ProjectImage
+        src={fields.image.fields.file.url}
+        alt={`${fields.title} screenshot`}
+      />
     </StyledDesktop>
-    <MobileProjectDescription>{project.description}</MobileProjectDescription>
-    <MobileTechStack tech={project.tech} />
+    <MobileProjectDescription>{fields.description}</MobileProjectDescription>
+    <MobileTechStack tech={fields.skills} />
   </MobileProjectLayout>
+);
 
 const ProjectDisplay = ({projects}) => projects.map(project =>
-  <Project {...project} key={uuidv4()} />
+  <Project {...project} key={project.sys.id} />
 )
 
-export default function Projects() {  
-  return (
-    <div>
-      <ProjectDisplay projects={projects}/>
-    </div>
-  )
+export default function Projects() {
+  const [projects, loading] = getProjects();
+  
+  return <div>{!loading && <ProjectDisplay projects={projects.items} />}</div>;
 }

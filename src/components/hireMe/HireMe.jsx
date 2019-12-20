@@ -3,6 +3,7 @@ import { AnimatedHireMeButton } from './HireMeStyles';
 import HireMeModal from "./HireMeModal"
 import { PoseGroup } from "react-pose"
 import {useAtTopOfPage} from '../../hooks';
+import lockScroll from "react-lock-scroll"
 
 import uuidv4 from "uuid/v4";
 const keys = {
@@ -14,9 +15,7 @@ export default function HireMe() {
   const [modalActive, setModalActive] = useState(false)
   const visible = !useAtTopOfPage()
 
-  useEffect(() => {
-    document.body.style.overflow = modalActive ? "hidden" : "unset";
-  }, [modalActive])
+  lockScroll(modalActive)
 
   return (
     <>
