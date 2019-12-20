@@ -43,7 +43,7 @@ const MyForm = () => {
   const handleSubmit = async (values, actions) => {
     try{
       const resp = await axios.post(
-        "https://formspree.io/arbrtmorrissey86@gmail.com",
+        "https://formspree.io/rbrtmorrissey86@gmail.com",
         {data: values}
       );
       actions.setSubmitting(false);
