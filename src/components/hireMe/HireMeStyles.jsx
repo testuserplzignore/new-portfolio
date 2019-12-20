@@ -109,8 +109,8 @@ export const ModalBackground = posed(Shade)({
 export const Modal = posed(styled.div`
   border-radius: 20px;
   background-color: white;
-  height: 80%;
-  width: 70%;
+  /* height: 80%; */
+  min-width: 50%;
   position: fixed;
   right: 50%;
   bottom: 50%;
@@ -124,7 +124,7 @@ export const Modal = posed(styled.div`
   },
   active: {
     applyAtStart: {
-      zIndex: 1
+      zIndex: 3
     },
     scale: 1,
     x: "50%",
@@ -168,7 +168,7 @@ export const FormField = styled.div`
 export const FormInput = styled.input`
   outline: none;
   padding: 10px;
-  margin-top: 10px;
+  margin-top: 5px;
   border-radius: 5px;
 `;
 
@@ -179,5 +179,9 @@ export const FormText = styled.textarea`
   border: inset 2px rgb(238, 238, 238);
   border-radius: 5px;
   padding: 10px;
-  min-height: 150px;
+  min-height: 50px;
+`;
+
+export const FormErrors = styled.span`
+  color: red;
 `;

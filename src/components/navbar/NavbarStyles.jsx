@@ -2,7 +2,7 @@ import styled from "styled-components"
 import posed from "react-pose"
 
 export const NavContainer = styled.div`
-  z-index: 2;
+  z-index: 1;
   background-color: #333; 
   position: fixed;
   top: 0; 

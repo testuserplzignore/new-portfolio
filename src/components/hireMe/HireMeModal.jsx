@@ -1,8 +1,29 @@
 import React, { useState } from 'react';
 import {Formik, Form, Field, ErrorMessage} from "formik";
 import axios from "axios";
+import * as Yup from "yup";
 
-import { ModalBackground, Modal, ModalContents, AnimatedSubmitButton, StyledForm, FormField, FormInput, FormText } from './HireMeStyles';
+import {
+  ModalBackground,
+  Modal,
+  ModalContents,
+  AnimatedSubmitButton,
+  StyledForm,
+  FormField,
+  FormInput,
+  FormText,
+  FormErrors
+} from "./HireMeStyles";
+
+const FormspeeSchema = Yup.object().shape({
+  email: Yup.string()
+    .email("Invalid Email")
+    .required("Required"),
+  name: Yup.string().required("Required"),
+  message: Yup.string()
+    .min(25, "Please leave a detailed Message")
+    .required("Required")
+});
 
 const FormikInput = ({ field, form, ...props }) => (
   <FormInput {...field} {...props} />
@@ -12,7 +33,7 @@ const FormikTextArea = ({ field, form, ...props }) => (
   <FormText {...field} {...props} />
 );
 
-const MyForm = (props) => {
+const MyForm = () => {
   const [serverState, setServerState] = useState();
 
   const handleResponse = (ok, msg) => {
@@ -20,13 +41,11 @@ const MyForm = (props) => {
   };
 
   const handleSubmit = async (values, actions) => {
-    console.log(actions, values);
     try{
       const resp = await axios.post(
-        "https://formspree.io/rbrtmorrissey86@gmail.com",
+        "https://formspree.io/arbrtmorrissey86@gmail.com",
         {data: values}
       );
-      console.log(resp);
       actions.setSubmitting(false);
       actions.resetForm();
       handleResponse(true, "Thanks!");
@@ -36,41 +55,38 @@ const MyForm = (props) => {
     }
   }
 
-
+  console.log(serverState);
+  
   return (
     <Formik
       initialValues={{ email: "", name: "", message: "" }}
       onSubmit={handleSubmit}
+      validationSchema={FormspeeSchema}
     >
-      {({ isSubmitting }) => (
+      {({ isSubmitting, errors }) => (
         <Form component={StyledForm} noValidate>
           <FormField>
-            <label>Email</label>
-            <Field
-              type="email"
-              name="email"
-              component={FormikInput}
-            />
+            <label>
+              Email <ErrorMessage name="email" component={FormErrors} />
+            </label>
+            <Field type="email" name="email" component={FormikInput} />
           </FormField>
           <FormField>
-            <label>Name</label>
-            <Field
-              type="name"
-              name="name"
-              component={FormikInput}
-            />
+            <label>
+              Name <ErrorMessage name="name" component={FormErrors} />
+            </label>
+            <Field type="name" name="name" component={FormikInput} />
           </FormField>
           <FormField>
-            <label>Message</label>
-            <Field
-              type="message"
-              name="message"
-              component={FormikTextArea}
-            />
+            <label>
+              Message <ErrorMessage name="message" component={FormErrors} />
+            </label>
+            <Field type="message" name="message" component={FormikTextArea} />
           </FormField>
           <AnimatedSubmitButton type="submit" disabled={isSubmitting}>
             Contact Me
           </AnimatedSubmitButton>
+          <p>{serverState ? serverState.msg : "Looking forwards to hearing from you!"}</p>
         </Form>
       )}
     </Formik>
