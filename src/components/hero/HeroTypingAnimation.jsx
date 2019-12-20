@@ -6,7 +6,8 @@ import TypeAboutMe from "./HeroTypeAboutMe";
 const aboutMeArr = ["Software Engineer", "Web Developer", "Dog Lover", "Full Stack Developer"];
 
 
-export default function HeroTypingAnimation({setLinksVisible}) {
+export default function HeroTypingAnimation(props) {
+  const { setLinksVisible, heroTypingStatic, heroTypingLoop } = props;
   const [showAboutMe, setShowAboutMe] = useState(false);
   
   return (
@@ -14,21 +15,22 @@ export default function HeroTypingAnimation({setLinksVisible}) {
       <Typist
         cursor={{
           hideWhenDone: true,
-          hideWhenDoneDelay: 0,
+          hideWhenDoneDelay: 0
         }}
-        onTypingDone={()=>{
-          setShowAboutMe(true)
-          setLinksVisible(true)
+        onTypingDone={() => {
+          setShowAboutMe(true);
+          setLinksVisible(true);
         }}
       >
-        <BoldAnimatedTextContainer>Robert</BoldAnimatedTextContainer>
+        <BoldAnimatedTextContainer>
+          {heroTypingStatic[0]}
+        </BoldAnimatedTextContainer>
         <br />
-        <BoldAnimatedTextContainer>Morrissey</BoldAnimatedTextContainer>
-        
+        <BoldAnimatedTextContainer>
+          {heroTypingStatic[1]}
+        </BoldAnimatedTextContainer>
       </Typist>
-      {showAboutMe && 
-        <TypeAboutMe aboutMeArr={aboutMeArr} />
-      }
+      {showAboutMe && <TypeAboutMe aboutMeArr={heroTypingLoop} />}
     </AnimationContainer>
-  )
+  );
 }
